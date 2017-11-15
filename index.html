@@ -26,6 +26,21 @@
             const app = {
                 cafeCard: document.querySelector('li'),
 
+                getCafe: function() {
+                    const request = new XMLHttpRequest();
+
+                    request.onreadystatechange = function() {
+                        if (request.readyState === XMLHttpRequest.DONE) {
+                            if (request.status === 200) {
+                                app.addCafeCard(JSON.parse(request.response));
+                            }
+                        }
+                    };
+
+                    request.open('GET', 'cafe-data.json');
+                    request.send();
+                },
+
                 addCafeCard: function(cafe) {
                     this.cafeCard.querySelector('h2').textContent = cafe.name;
                     this.cafeCard.querySelector('.coffee-taste span').textContent = cafe.coffeTaste;
@@ -34,6 +49,8 @@
                     this.cafeCard.removeAttribute('hidden');
                 }
             };
+
+            app.getCafe();
         </script>
     </body>
 </html>
