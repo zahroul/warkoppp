@@ -16,10 +16,24 @@
         <ul>
             <li hidden>
                 <h2></h2>
-                <div>Rasa Kopinya:</div>
-                <div>Harga:</div>
-                <div>Lokasi:</div>
+                <div class="coffee-taste">Rasa Kopinya: <span></span></div>
+                <div class="price">Harga: <span></span></div>
+                <div class="location">Lokasi: <span></span></div>
             </li>
         </ul>
+
+        <script>
+            const app = {
+                cafeCard: document.querySelector('li'),
+
+                addCafeCard: function(cafe) {
+                    this.cafeCard.querySelector('h2').textContent = cafe.name;
+                    this.cafeCard.querySelector('.coffee-taste span').textContent = cafe.coffeTaste;
+                    this.cafeCard.querySelector('.price span').textContent = cafe.price;
+                    this.cafeCard.querySelector('.location span').textContent = cafe.location;
+                    this.cafeCard.removeAttribute('hidden');
+                }
+            };
+        </script>
     </body>
 </html>
