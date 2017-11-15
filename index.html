@@ -24,7 +24,8 @@
 
         <script>
             const app = {
-                cafeCard: document.querySelector('li'),
+                cafeCardsContainer: document.querySelector('ul'),
+                cafeCardTemplate: document.querySelector('li'),
 
                 getCafe: function() {
                     const request = new XMLHttpRequest();
@@ -32,7 +33,7 @@
                     request.onreadystatechange = function() {
                         if (request.readyState === XMLHttpRequest.DONE) {
                             if (request.status === 200) {
-                                app.addCafeCard(JSON.parse(request.response));
+                                app.createCafeList(JSON.parse(request.response).cafeList);
                             }
                         }
                     };
@@ -42,11 +43,21 @@
                 },
 
                 addCafeCard: function(cafe) {
-                    this.cafeCard.querySelector('h2').textContent = cafe.name;
-                    this.cafeCard.querySelector('.coffee-taste span').textContent = cafe.coffeTaste;
-                    this.cafeCard.querySelector('.price span').textContent = cafe.price;
-                    this.cafeCard.querySelector('.location span').textContent = cafe.location;
-                    this.cafeCard.removeAttribute('hidden');
+                    const card = this.cafeCardTemplate.cloneNode(true);
+
+                    card.querySelector('h2').textContent = cafe.name;
+                    card.querySelector('.coffee-taste span').textContent = cafe.coffeTaste;
+                    card.querySelector('.price span').textContent = cafe.price;
+                    card.querySelector('.location span').textContent = cafe.location;
+                    card.removeAttribute('hidden');
+
+                    this.cafeCardsContainer.appendChild(card);
+                },
+
+                createCafeList: function(cafeList) {
+                    cafeList.forEach(function(cafe) {
+                        app.addCafeCard(cafe);
+                    });
                 }
             };
 
