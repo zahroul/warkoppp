@@ -63,24 +63,10 @@
                 createCafeCard: function() {
                     const cafeCard = document.createElement('li');
                     const cafeName = document.createElement('h2');
-                    const cafeProperty = document.createElement('div');
-                    const valueContainer = document.createElement('span');
 
-                    const cafeCoffeeTaste = cafeProperty.cloneNode(true);
-                    cafeCoffeeTaste.className = 'coffee-taste';
-                    cafeCoffeeTaste.textContent = 'Rasa Kopinya: ';
-
-                    const cafePrice = cafeProperty.cloneNode(true);
-                    cafePrice.className = 'price';
-                    cafePrice.textContent = 'Harga: ';
-
-                    const cafeLocation = cafeProperty.cloneNode(true);
-                    cafeLocation.className = 'location';
-                    cafeLocation.textContent = 'Lokasi: ';
-
-                    cafeCoffeeTaste.appendChild(valueContainer.cloneNode(true));
-                    cafePrice.appendChild(valueContainer.cloneNode(true));
-                    cafeLocation.appendChild(valueContainer.cloneNode(true));
+                    const cafeCoffeeTaste = this.createCafeCardProperty('coffee-taste', 'Rasa Kopinya');
+                    const cafePrice = this.createCafeCardProperty('price', 'Harga');
+                    const cafeLocation = this.createCafeCardProperty('location', 'Lokasi');
 
                     cafeCard.appendChild(cafeName);
                     cafeCard.appendChild(cafeCoffeeTaste);
@@ -88,6 +74,16 @@
                     cafeCard.appendChild(cafeLocation);
 
                     return cafeCard;
+                },
+
+                createCafeCardProperty: function(className, textContent) {
+                    const property = document.createElement('div');
+
+                    property.className = className;
+                    property.textContent = textContent + ':  ';
+                    property.appendChild(document.createElement('span'));
+
+                    return property;
                 },
 
                 addCafeCard: function(cafe) {
