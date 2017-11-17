@@ -28,18 +28,44 @@
                 cafeCardTemplate: document.querySelector('li'),
 
                 getCafe: function() {
-                    const request = new XMLHttpRequest();
+                    return new Promise(function(resolve) {
+                        const request = new XMLHttpRequest();
 
-                    request.onreadystatechange = function() {
-                        if (request.readyState === XMLHttpRequest.DONE) {
-                            if (request.status === 200) {
-                                app.createCafeList(JSON.parse(request.response).cafeList);
+                        request.onreadystatechange = function() {
+                            if (request.readyState === XMLHttpRequest.DONE) {
+                                if (request.status === 200) {
+                                    resolve(request.response);
+                                }
+                            }
+                        };
+
+                        request.open('GET', 'cafe-data.json');
+                        request.send();
+                    });
+                },
+
+                searchCafe: function(cafeList, keyword) {
+                    const foundCafeList = [];
+
+                    cafeList.forEach(function(cafe) {
+                        let keywordIndex = 0;
+
+                        for (let i = 0; i < cafe.location.length; i++) {
+                            if (keywordIndex < keyword.length) {
+                                if (cafe.location[i].toLowerCase() === keyword[keywordIndex]) {
+                                    keywordIndex += 1;
+                                }
+
+                                if (keyword[keywordIndex] === undefined) break;
                             }
                         }
-                    };
 
-                    request.open('GET', 'cafe-data.json');
-                    request.send();
+                        if (keywordIndex !== keyword.length) return '';
+
+                        foundCafeList.push(cafe);
+                    });
+
+                    this.createCafeList(foundCafeList);
                 },
 
                 addCafeCard: function(cafe) {
@@ -61,7 +87,15 @@
                 }
             };
 
-            app.getCafe();
+            document.querySelector('input').addEventListener('change', function(event) {
+                const keyword = event.target.value.trim();
+
+                if (keyword === '') return '';
+
+                app.getCafe().then(JSON.parse).then(function(response) {
+                    app.searchCafe(response.cafeList, keyword);
+                });
+            });
         </script>
     </body>
 </html>
