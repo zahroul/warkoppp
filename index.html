@@ -57,7 +57,7 @@
                         foundCafeList.push(cafe);
                     });
 
-                    this.createCafeList(foundCafeList);
+                    this.fillCafeCardsContainer(foundCafeList);
                 },
 
                 createCafeCard: function() {
@@ -97,7 +97,7 @@
                     this.cafeCardsContainer.appendChild(card);
                 },
 
-                createCafeList: function(cafeList) {
+                fillCafeCardsContainer: function(cafeList) {
                     cafeList.forEach(function(cafe) {
                         app.addCafeCard(cafe);
                     });
