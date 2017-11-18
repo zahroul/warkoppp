@@ -101,13 +101,24 @@
                     cafeList.forEach(function(cafe) {
                         app.addCafeCard(cafe);
                     });
+                },
+
+                clearCafeCardsContainer: function(cafeCardsContainer) {
+                    while (cafeCardsContainer.firstChild) {
+                        cafeCardsContainer.removeChild(cafeCardsContainer.firstChild);
+                    }
                 }
             };
 
             document.querySelector('input').addEventListener('change', function(event) {
                 const keyword = event.target.value.trim();
+                const cardsContainer = app.cafeCardsContainer;
 
                 if (keyword === '') return '';
+
+                if (cardsContainer.hasChildNodes()) {
+                    app.clearCafeCardsContainer(cardsContainer);
+                }
 
                 app.getCafe().then(JSON.parse).then(function(response) {
                     app.searchCafe(response.cafeList, keyword);
