@@ -5,7 +5,7 @@ const app = {
     return new Promise(((resolve) => {
       const request = new XMLHttpRequest();
 
-      request.onreadystatechange = function () {
+      request.onreadystatechange = function handleResponse() {
         if (request.readyState === XMLHttpRequest.DONE) {
           if (request.status === 200) resolve(request.response);
         }
