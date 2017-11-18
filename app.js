@@ -20,22 +20,24 @@ const app = {
     const foundCafeList = [];
 
     cafeList.forEach((cafe) => {
-      let keywordIndex = 0;
-
-      for (let i = 0; i < cafe.location.length; i++) {
-        if (keywordIndex < keyword.length) {
-          if (cafe.location[i].toLowerCase() === keyword[keywordIndex]) keywordIndex += 1;
-
-          if (keyword[keywordIndex] === undefined) break;
-        }
-      }
-
-      if (keywordIndex !== keyword.length) return '';
-
-      foundCafeList.push(cafe);
+      if (this.matchLocation(cafe, keyword)) foundCafeList.push(cafe);
     });
 
     this.fillCafeCardsContainer(foundCafeList);
+  },
+
+  matchLocation(cafe, keyword) {
+    let keywordIndex = 0;
+
+    for (let i = 0; i < cafe.location.length; i += 1) {
+      if (keywordIndex < keyword.length) {
+        if (cafe.location.charAt(i).toLowerCase() === keyword[keywordIndex]) keywordIndex += 1;
+
+        if (keyword[keywordIndex] === undefined) break;
+      }
+    }
+
+    return keywordIndex === keyword.length;
   },
 
   createCafeCard() {
