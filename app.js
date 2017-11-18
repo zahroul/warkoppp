@@ -92,9 +92,9 @@ document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim();
   const cardsContainer = app.cafeCardsContainer;
 
-  if (keyword === '') return '';
+  if (keyword !== '') {
+    if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
 
-  if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
-
-  app.getCafe().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
+    app.getCafe().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
+  }
 });
