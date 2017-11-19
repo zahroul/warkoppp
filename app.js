@@ -23,7 +23,11 @@ const app = {
       if (this.matchLocation(cafe.location, keyword)) foundCafeList.push(cafe);
     });
 
-    this.fillCafeCardsContainer(foundCafeList);
+    if (foundCafeList.length === 0) {
+      document.body.insertBefore(this.createSearchAlert(keyword), this.cafeCardsContainer);
+    } else {
+      this.fillCafeCardsContainer(foundCafeList);
+    }
   },
 
   matchLocation(location, keyword) {
@@ -89,6 +93,13 @@ const app = {
     while (cafeCardsContainer.firstChild) {
       cafeCardsContainer.removeChild(cafeCardsContainer.firstChild);
     }
+  },
+
+  createSearchAlert(keyword) {
+    const alert = document.createElement('div');
+
+    alert.textContent = `Sementara ini belum ada warung kopi yang terdaftar di daerah ${keyword}`;
+    return alert;
   },
 };
 
