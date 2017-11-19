@@ -35,7 +35,7 @@ const app = {
 
     for (let i = 0; i < location.length; i += 1) {
       if (charIndex < keyword.length) {
-        if (location.charAt(i).toLowerCase() !== keyword.charAt(charIndex)) {
+        if (location.charAt(i).toLowerCase() !== keyword.charAt(charIndex).toLowerCase()) {
           charIndex = 0;
         } else {
           charIndex += 1;
@@ -110,7 +110,7 @@ const app = {
 };
 
 document.querySelector('input').addEventListener('change', (event) => {
-  const keyword = event.target.value.trim().toLowerCase();
+  const keyword = event.target.value.trim();
   const cardsContainer = app.cafeCardsContainer;
   const alert = document.querySelector('.alert');
 
