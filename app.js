@@ -98,16 +98,25 @@ const app = {
   createSearchAlert(keyword) {
     const alert = document.createElement('div');
 
+    alert.className = 'alert';
     alert.textContent = `Sementara ini belum ada warung kopi yang terdaftar di daerah ${keyword}`;
+
     return alert;
+  },
+
+  isAlertExist(alert) {
+    return document.body.contains(alert);
   },
 };
 
 document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim().toLowerCase();
   const cardsContainer = app.cafeCardsContainer;
+  const alert = document.querySelector('.alert');
 
   if (keyword !== '') {
+    if (app.isAlertExist(alert)) alert.remove();
+
     if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
 
     app.getCafeList().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
