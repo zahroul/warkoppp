@@ -64,7 +64,7 @@ const app = {
     const property = document.createElement('div');
 
     property.className = className;
-    property.textContent = `${textContent}:  `;
+    property.textContent = `${textContent}: `;
     property.appendChild(document.createElement('span'));
 
     return property;
