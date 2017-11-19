@@ -1,7 +1,7 @@
 const app = {
   cafeCardsContainer: document.querySelector('ul'),
 
-  getCafe() {
+  getCafeList() {
     return new Promise(((resolve) => {
       const request = new XMLHttpRequest();
 
@@ -99,6 +99,6 @@ document.querySelector('input').addEventListener('change', (event) => {
   if (keyword !== '') {
     if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
 
-    app.getCafe().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
+    app.getCafeList().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
   }
 });
