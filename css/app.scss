@@ -14,3 +14,11 @@ h1 div {
     font-size: 62.5%;
     font-weight: 400;
 }
+
+.screen-reader-text {
+    overflow: hidden;
+    clip: rect(0.0625rem, 0.0625rem, 0.0625rem, 0.0625rem);
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+}
