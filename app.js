@@ -114,11 +114,11 @@ document.querySelector('input').addEventListener('change', (event) => {
   const cardsContainer = app.cafeCardsContainer;
   const alert = document.querySelector('.alert');
 
-  if (keyword !== '') {
-    if (app.isAlertExist(alert)) alert.remove();
+  if (keyword === '') return false;
 
-    if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
+  if (app.isAlertExist(alert)) alert.remove();
 
-    app.getCafeList().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
-  }
+  if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
+
+  return app.getCafeList().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
 });
