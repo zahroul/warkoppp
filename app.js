@@ -104,8 +104,12 @@ const app = {
     return document.body.contains(alert);
   },
 
+  showSearchAlert(keyword, cafeCardsContainer) {
+    return document.body.insertBefore(this.createSearchAlert(keyword), cafeCardsContainer);
+  },
+
   showSearchResult(keyword, cafeCardsContainer, foundCafeList) {
-    if (foundCafeList.length === 0) return document.body.insertBefore(this.createSearchAlert(keyword), cafeCardsContainer);
+    if (foundCafeList.length === 0) return this.showSearchAlert(keyword, cafeCardsContainer);
 
     return this.fillCafeCardsContainer(foundCafeList);
   },
