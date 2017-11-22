@@ -23,11 +23,7 @@ const app = {
       if (this.matchLocation(cafe.location, keyword)) foundCafeList.push(cafe);
     });
 
-    if (foundCafeList.length === 0) {
-      document.body.insertBefore(this.createSearchAlert(keyword), this.cafeCardsContainer);
-    } else {
-      this.fillCafeCardsContainer(foundCafeList);
-    }
+    return foundCafeList;
   },
 
   matchLocation(location, keyword) {
@@ -107,6 +103,12 @@ const app = {
   isAlertExist(alert) {
     return document.body.contains(alert);
   },
+
+  showSearchResult(keyword, cafeCardsContainer, foundCafeList) {
+    if (foundCafeList.length === 0) return document.body.insertBefore(this.createSearchAlert(keyword), cafeCardsContainer);
+
+    return this.fillCafeCardsContainer(foundCafeList);
+  },
 };
 
 document.querySelector('input').addEventListener('change', (event) => {
@@ -120,5 +122,8 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
 
-  return app.getCafeList().then(JSON.parse).then(response => app.searchCafe(response.cafeList, keyword));
+  return app.getCafeList()
+    .then(JSON.parse)
+    .then(response => app.searchCafe(response.cafeList, keyword))
+    .then(foundCafeList => app.showSearchResult(keyword, cardsContainer, foundCafeList));
 });
