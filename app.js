@@ -62,10 +62,17 @@ const app = {
 
   createCafeCardProperty(className, textContent) {
     const property = document.createElement('div');
+    const attribute = property.cloneNode(true);
+    const value = property.cloneNode(true);
 
     property.className = className;
-    property.textContent = `${textContent}: `;
-    property.appendChild(document.createElement('span'));
+
+    attribute.className = 'attribute';
+    attribute.textContent = textContent;
+    property.appendChild(attribute);
+
+    value.className = 'value';
+    property.appendChild(value);
 
     return property;
   },
@@ -74,9 +81,9 @@ const app = {
     const card = this.createCafeCard();
 
     card.querySelector('h2').textContent = cafe.name;
-    card.querySelector('.coffee-taste span').textContent = cafe.coffeeTaste;
-    card.querySelector('.price span').textContent = cafe.price;
-    card.querySelector('.location span').textContent = cafe.location;
+    card.querySelector('.coffee-taste .value').textContent = cafe.coffeeTaste;
+    card.querySelector('.price .value').textContent = cafe.price;
+    card.querySelector('.location .value').textContent = cafe.location;
 
     this.cafeCardsContainer.appendChild(card);
   },
