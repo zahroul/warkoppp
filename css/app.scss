@@ -15,9 +15,34 @@ h1 div {
     font-weight: 400;
 }
 
+h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0;
+}
+
+li {
+    margin-bottom: 1.5rem;
+
+    > div {
+        display: inline-block;
+
+        &:not(:last-child) {
+            width: 50%;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .attribute {
+        color: #515151;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+    }
 }
 
 label {
