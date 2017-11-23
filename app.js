@@ -112,7 +112,7 @@ const app = {
   },
 
   showSearchAlert(keyword, cafeCardsContainer) {
-    return document.body.insertBefore(this.createSearchAlert(keyword), cafeCardsContainer);
+    return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), cafeCardsContainer);
   },
 
   showSearchResult(keyword, cafeCardsContainer, foundCafeList) {
