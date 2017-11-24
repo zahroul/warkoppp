@@ -111,12 +111,12 @@ const app = {
     return document.body.contains(alert);
   },
 
-  showSearchAlert(keyword, cafeCardsContainer) {
-    return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), cafeCardsContainer);
+  showSearchAlert(keyword) {
+    return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cafeCardsContainer);
   },
 
-  showSearchResult(keyword, cafeCardsContainer, foundCafeList) {
-    if (foundCafeList.length === 0) return this.showSearchAlert(keyword, cafeCardsContainer);
+  showSearchResult(keyword, foundCafeList) {
+    if (foundCafeList.length === 0) return this.showSearchAlert(keyword);
 
     this.cafeCardsContainer.style.display = 'inherit';
 
@@ -140,5 +140,5 @@ document.querySelector('input').addEventListener('change', (event) => {
   return app.getCafeList()
     .then(JSON.parse)
     .then(response => app.searchCafe(response.cafeList, keyword))
-    .then(foundCafeList => app.showSearchResult(keyword, cardsContainer, foundCafeList));
+    .then(foundCafeList => app.showSearchResult(keyword, foundCafeList));
 });
