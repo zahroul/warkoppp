@@ -133,6 +133,8 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
 
+  document.querySelector('header').style.cssText = 'position: static; margin-top: 1rem; margin-bottom: 1.5rem';
+
   return app.getCafeList()
     .then(JSON.parse)
     .then(response => app.searchCafe(response.cafeList, keyword))
