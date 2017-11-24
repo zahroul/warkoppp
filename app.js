@@ -118,6 +118,8 @@ const app = {
   showSearchResult(keyword, cafeCardsContainer, foundCafeList) {
     if (foundCafeList.length === 0) return this.showSearchAlert(keyword, cafeCardsContainer);
 
+    this.cafeCardsContainer.style.display = 'inherit';
+
     return this.fillCafeCardsContainer(foundCafeList);
   },
 };
