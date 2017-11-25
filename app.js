@@ -148,10 +148,12 @@ window.addEventListener('scroll', () => {
   const searchInput = document.querySelector('label');
 
   if (window.scrollY >= 114) {
+    document.body.className = 'body-sticky';
     searchInput.className = 'search-input-sticky';
 
     return searchInput;
   }
 
+  document.body.removeAttribute('class');
   return searchInput.removeAttribute('class');
 });
