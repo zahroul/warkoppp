@@ -38,7 +38,6 @@ h2 {
 
 ul {
     list-style-type: none;
-    display: none;
     padding-left: 0;
 }
 
@@ -109,6 +108,10 @@ path {
     position: absolute;
     width: 0.0625rem;
     height: 0.0625rem;
+}
+
+.hidden {
+    display: none;
 }
 
 .header-static {

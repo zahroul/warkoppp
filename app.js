@@ -118,7 +118,7 @@ const app = {
   showSearchResult(keyword, foundCafeList) {
     if (foundCafeList.length === 0) return this.showSearchAlert(keyword);
 
-    this.cafeCardsContainer.style.display = 'inherit';
+    this.cafeCardsContainer.removeAttribute('class');
 
     return this.fillCafeCardsContainer(foundCafeList);
   },
