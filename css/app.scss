@@ -122,3 +122,16 @@ path {
         margin-top: 1.5rem;
     }
 }
+
+.search-input-sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #fff;
+
+    svg {
+        top: 1.0625rem;
+    }
+}

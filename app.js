@@ -143,3 +143,15 @@ document.querySelector('input').addEventListener('change', (event) => {
     .then(response => app.searchCafe(response.cafeList, keyword))
     .then(foundCafeList => app.showSearchResult(keyword, foundCafeList));
 });
+
+window.addEventListener('scroll', () => {
+  const searchInput = document.querySelector('label');
+
+  if (window.scrollY >= 114) {
+    searchInput.className = 'search-input-sticky';
+
+    return searchInput;
+  }
+
+  return searchInput.removeAttribute('class');
+});
