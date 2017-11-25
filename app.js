@@ -126,6 +126,7 @@ const app = {
 
 document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim();
+  const header = document.querySelector('header');
   const cardsContainer = app.cafeCardsContainer;
   const alert = document.querySelector('.alert');
 
@@ -135,7 +136,7 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
 
-  document.querySelector('header').style.cssText = 'position: static; margin-top: 1rem; margin-bottom: 1.5rem';
+  if (header.className !== 'header-static') header.className = 'header-static';
 
   return app.getCafeList()
     .then(JSON.parse)
