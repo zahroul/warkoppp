@@ -1,5 +1,5 @@
 const app = {
-  cafeCardsContainer: document.querySelector('ul'),
+  cardsContainer: document.querySelector('.cards-container'),
 
   getCafeList() {
     return new Promise(((resolve) => {
@@ -88,16 +88,16 @@ const app = {
     card.querySelector('.price .value').textContent = cafe.price;
     card.querySelector('.location .value').textContent = cafe.location;
 
-    this.cafeCardsContainer.appendChild(card);
+    this.cardsContainer.appendChild(card);
   },
 
   fillCafeCardsContainer(cafeList) {
     cafeList.forEach(cafe => app.addCafeCard(cafe));
   },
 
-  clearCafeCardsContainer(cafeCardsContainer) {
-    while (cafeCardsContainer.firstChild) {
-      cafeCardsContainer.removeChild(cafeCardsContainer.firstChild);
+  clearCafeCardsContainer(cardsContainer) {
+    while (cardsContainer.firstChild) {
+      cardsContainer.removeChild(cardsContainer.firstChild);
     }
   },
 
@@ -115,13 +115,13 @@ const app = {
   },
 
   showSearchAlert(keyword) {
-    return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cafeCardsContainer);
+    return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
   },
 
   showSearchResult(keyword, foundCafeList) {
     if (foundCafeList.length === 0) return this.showSearchAlert(keyword);
 
-    if (this.cafeCardsContainer.classList.contains('hidden')) this.cafeCardsContainer.classList.remove('hidden');
+    if (this.cardsContainer.classList.contains('hidden')) this.cardsContainer.classList.remove('hidden');
 
     return this.fillCafeCardsContainer(foundCafeList);
   },
@@ -130,14 +130,14 @@ const app = {
 document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim();
   const header = document.querySelector('header');
-  const cardsContainer = app.cafeCardsContainer;
+  const cards = app.cardsContainer;
   const alert = document.querySelector('.alert');
 
   if (keyword === '') return false;
 
   if (app.isAlertExist(alert)) alert.remove();
 
-  if (cardsContainer.hasChildNodes()) app.clearCafeCardsContainer(cardsContainer);
+  if (cards.hasChildNodes()) app.clearCafeCardsContainer(cards);
 
   if (header.className !== 'header-static') header.className = 'header-static';
 
