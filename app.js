@@ -149,11 +149,9 @@ window.addEventListener('scroll', () => {
 
   if (window.scrollY >= 114) {
     document.body.className = 'body-sticky';
-    searchInput.className = 'search-input-sticky';
-
-    return searchInput;
+    return searchInput.classList.add('search-input-sticky');
   }
 
   document.body.removeAttribute('class');
-  return searchInput.removeAttribute('class');
+  return searchInput.classList.remove('search-input-sticky');
 });
