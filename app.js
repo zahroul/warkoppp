@@ -52,6 +52,7 @@ const app = {
     const cafePrice = this.createCafeCardProperty('price', 'Harga');
     const cafeLocation = this.createCafeCardProperty('location', 'Lokasi');
 
+    cafeCard.className = 'card';
     cafeCard.appendChild(cafeName);
     cafeCard.appendChild(cafeCoffeeTaste);
     cafeCard.appendChild(cafePrice);
