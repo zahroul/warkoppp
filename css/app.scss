@@ -24,16 +24,6 @@ header {
     width: 100%;
 }
 
-h1 {
-    margin-top: 0;
-    margin-bottom: $margin-component;
-
-    div {
-        font-size: $font-size-large;
-        font-weight: $font-weight-normal;
-    }
-}
-
 h2 {
     margin-top: $margin-component-content;
     margin-bottom: $margin-component-content;
@@ -129,6 +119,16 @@ path {
 
 .body-sticky {
     padding-top: $padding-content * 5;
+}
+
+.main-heading {
+    margin-top: 0;
+    margin-bottom: $margin-component;
+
+    div {
+        font-size: $font-size-large;
+        font-weight: $font-weight-normal;
+    }
 }
 
 .search-input-sticky {
