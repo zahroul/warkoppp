@@ -30,25 +30,6 @@ h2 {
     line-height: $line-height-heading;
 }
 
-li {
-    margin-bottom: $margin-component;
-
-    > div {
-        display: inline-block;
-
-        &:not(:last-child) {
-            width: 50%;
-            margin-bottom: $margin-component-content;
-        }
-    }
-
-    .attribute {
-        color: $color-text-secondary;
-        font-size: $font-size-small;
-        text-transform: uppercase;
-    }
-}
-
 input {
     width: 100%;
     padding: 0.75rem 0.75rem 0.75rem 2.75rem;
@@ -133,4 +114,23 @@ input {
 .cards-container {
     list-style-type: none;
     padding-left: 0;
+}
+
+.card {
+    margin-bottom: $margin-component;
+
+    > div {
+        display: inline-block;
+
+        &:not(:last-child) {
+            width: 50%;
+            margin-bottom: $margin-component-content;
+        }
+    }
+
+    .attribute {
+        color: $color-text-secondary;
+        font-size: $font-size-small;
+        text-transform: uppercase;
+    }
 }
