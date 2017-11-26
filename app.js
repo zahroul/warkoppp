@@ -45,22 +45,22 @@ const app = {
   },
 
   createCafeCard() {
-    const cafeCard = document.createElement('li');
+    const card = document.createElement('li');
     const cafeName = document.createElement('h2');
 
-    const cafeCoffeeTaste = this.createCafeCardProperty('coffee-taste', 'Rasa Kopinya');
-    const cafePrice = this.createCafeCardProperty('price', 'Harga');
-    const cafeLocation = this.createCafeCardProperty('location', 'Lokasi');
+    const coffeeTaste = this.createCafeCardProperty('coffee-taste', 'Rasa Kopinya');
+    const price = this.createCafeCardProperty('price', 'Harga');
+    const location = this.createCafeCardProperty('location', 'Lokasi');
 
-    cafeCard.className = 'card';
+    card.className = 'card';
     cafeName.className = 'card-heading';
 
-    cafeCard.appendChild(cafeName);
-    cafeCard.appendChild(cafeCoffeeTaste);
-    cafeCard.appendChild(cafePrice);
-    cafeCard.appendChild(cafeLocation);
+    card.appendChild(cafeName);
+    card.appendChild(coffeeTaste);
+    card.appendChild(price);
+    card.appendChild(location);
 
-    return cafeCard;
+    return card;
   },
 
   createCafeCardProperty(className, textContent) {
