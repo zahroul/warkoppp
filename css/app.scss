@@ -24,12 +24,6 @@ header {
     width: 100%;
 }
 
-h2 {
-    margin-top: $margin-component-content;
-    margin-bottom: $margin-component-content;
-    line-height: $line-height-heading;
-}
-
 input {
     width: 100%;
     padding: 0.75rem 0.75rem 0.75rem 2.75rem;
@@ -133,4 +127,10 @@ input {
         font-size: $font-size-small;
         text-transform: uppercase;
     }
+}
+
+.card-heading {
+    margin-top: $margin-component-content;
+    margin-bottom: $margin-component-content;
+    line-height: $line-height-heading;
 }
