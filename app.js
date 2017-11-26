@@ -91,13 +91,13 @@ const app = {
     this.cardsContainer.appendChild(card);
   },
 
-  fillCafeCardsContainer(cafeList) {
+  fillCardsContainer(cafeList) {
     cafeList.forEach(cafe => app.addCafeCard(cafe));
   },
 
-  clearCafeCardsContainer(cardsContainer) {
-    while (cardsContainer.firstChild) {
-      cardsContainer.removeChild(cardsContainer.firstChild);
+  clearCardsContainer() {
+    while (this.cardsContainer.firstChild) {
+      this.cardsContainer.removeChild(this.cardsContainer.firstChild);
     }
   },
 
@@ -123,7 +123,7 @@ const app = {
 
     if (this.cardsContainer.classList.contains('hidden')) this.cardsContainer.classList.remove('hidden');
 
-    return this.fillCafeCardsContainer(foundCafeList);
+    return this.fillCardsContainer(foundCafeList);
   },
 };
 
@@ -137,7 +137,7 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (app.isAlertExist(alert)) alert.remove();
 
-  if (cards.hasChildNodes()) app.clearCafeCardsContainer(cards);
+  if (cards.hasChildNodes()) app.clearCardsContainer();
 
   if (header.className !== 'header-static') header.className = 'header-static';
 
