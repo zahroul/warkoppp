@@ -1,0 +1,38 @@
+// ----------------------------------------------------------------------------
+// Variables
+// ----------------------------------------------------------------------------
+
+// Box Model
+$margin-layout: 2rem;
+$margin-component: 1.5rem;
+$margin-component-content: 1rem;
+$padding-content: 1rem;
+
+// Colors
+$astral: #3770aa;
+$sgi-gray-16: #282828;
+$sgi-gray-32: #515151;
+$sgi-gray-light: #aaa;
+$sgi-gray-76: #c1c1c1;
+$white: #fff;
+
+$color-text: $sgi-gray-16;
+$color-text-secondary: $sgi-gray-32;
+$color-text-input: $sgi-gray-32;
+$color-text-input-placeholder: $sgi-gray-light;
+
+$color-border-input: $sgi-gray-76;
+$color-border-input-focus: $astral;
+
+$color-background: $white;
+$color-stroke: $sgi-gray-32;
+
+// Typography
+$font-size-small: 0.75rem;
+$font-size-regular: 1rem;
+$font-size-large: 1.25rem;
+
+$font-weight-normal: 400;
+
+$line-height-regular: 1.5;
+$line-height-heading: 1.2;

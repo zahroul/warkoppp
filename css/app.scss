@@ -1,13 +1,17 @@
+// Core
+@import 'variables';
+
 body {
     margin: 0;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    color: #282828;
-    font: 1rem/1.5
-        -apple-system, BlinkMacSystemFont,
+    padding-right: $padding-content;
+    padding-left: $padding-content;
+    color: $color-text;
+    font-family: -apple-system, BlinkMacSystemFont,
         'Segoe UI', 'Roboto',
         'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
         'Helvetica Neue', sans-serif;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
 }
 
 main {
@@ -22,18 +26,18 @@ header {
 
 h1 {
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: $margin-component;
 
     div {
-        font-size: 62.5%;
-        font-weight: 400;
+        font-size: $font-size-large;
+        font-weight: $font-weight-normal;
     }
 }
 
 h2 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    margin-top: $margin-component-content;
+    margin-bottom: $margin-component-content;
+    line-height: $line-height-heading;
 }
 
 ul {
@@ -42,20 +46,20 @@ ul {
 }
 
 li {
-    margin-bottom: 1.5rem;
+    margin-bottom: $margin-component;
 
     > div {
         display: inline-block;
 
         &:not(:last-child) {
             width: 50%;
-            margin-bottom: 0.5rem;
+            margin-bottom: $margin-component-content;
         }
     }
 
     .attribute {
-        color: #515151;
-        font-size: 0.75rem;
+        color: $color-text-secondary;
+        font-size: $font-size-small;
         text-transform: uppercase;
     }
 }
@@ -68,19 +72,19 @@ label {
 input {
     width: 100%;
     padding: 0.75rem 0.75rem 0.75rem 2.75rem;
-    border: 0.0625rem solid #c1c1c1;
+    border: 0.0625rem solid $color-border-input;
     border-radius: 0.125rem;
-    color: #515151;
+    color: $color-text-input;
     font: inherit;
 
     &:focus {
-        border-color: #3770aa;
+        border-color: $color-border-input-focus;
         outline: 0;
     }
 
     &::placeholder {
         opacity: 1;
-        color: #aaa;
+        color: $color-text-input-placeholder;
     }
 }
 
@@ -97,7 +101,7 @@ svg {
 
 path {
     fill: none;
-    stroke: #515151;
+    stroke: $color-stroke;
     stroke-width: 0.125rem;
     stroke-linecap: round;
 }
@@ -116,15 +120,15 @@ path {
 
 .header-static {
     position: static;
-    margin-bottom: 1.5rem;
+    margin-bottom: $margin-layout;
 
     h1 {
-        margin-top: 1.5rem;
+        margin-top: $margin-component;
     }
 }
 
 .body-sticky {
-    padding-top: 5rem;
+    padding-top: $padding-content * 5;
 }
 
 .search-input-sticky {
@@ -132,8 +136,8 @@ path {
     top: 0;
     right: 0;
     left: 0;
-    padding: 1rem;
-    background-color: #fff;
+    padding: $padding-content;
+    background-color: $color-background;
 
     svg {
         top: 1.0625rem;
