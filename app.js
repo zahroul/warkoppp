@@ -118,7 +118,7 @@ const app = {
   showSearchResult(keyword, foundCafeList) {
     if (foundCafeList.length === 0) return this.showSearchAlert(keyword);
 
-    if (this.cafeCardsContainer.hasAttribute('class')) this.cafeCardsContainer.removeAttribute('class');
+    if (this.cafeCardsContainer.classList.contains('hidden')) this.cafeCardsContainer.classList.remove('hidden');
 
     return this.fillCafeCardsContainer(foundCafeList);
   },
