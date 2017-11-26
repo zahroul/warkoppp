@@ -53,6 +53,8 @@ const app = {
     const cafeLocation = this.createCafeCardProperty('location', 'Lokasi');
 
     cafeCard.className = 'card';
+    cafeName.className = 'card-heading';
+
     cafeCard.appendChild(cafeName);
     cafeCard.appendChild(cafeCoffeeTaste);
     cafeCard.appendChild(cafePrice);
