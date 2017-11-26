@@ -44,13 +44,13 @@ const app = {
     return charIndex === keyword.length;
   },
 
-  createCafeCard() {
+  createCard() {
     const card = document.createElement('li');
     const cafeName = document.createElement('h2');
 
-    const coffeeTaste = this.createCafeCardProperty('coffee-taste', 'Rasa Kopinya');
-    const price = this.createCafeCardProperty('price', 'Harga');
-    const location = this.createCafeCardProperty('location', 'Lokasi');
+    const coffeeTaste = this.createCardProperty('coffee-taste', 'Rasa Kopinya');
+    const price = this.createCardProperty('price', 'Harga');
+    const location = this.createCardProperty('location', 'Lokasi');
 
     card.className = 'card';
     cafeName.className = 'card-heading';
@@ -63,7 +63,7 @@ const app = {
     return card;
   },
 
-  createCafeCardProperty(className, textContent) {
+  createCardProperty(className, textContent) {
     const property = document.createElement('div');
     const attribute = property.cloneNode(true);
     const value = property.cloneNode(true);
@@ -80,8 +80,8 @@ const app = {
     return property;
   },
 
-  addCafeCard(cafe) {
-    const card = this.createCafeCard();
+  addCard(cafe) {
+    const card = this.createCard();
 
     card.querySelector('h2').textContent = cafe.name;
     card.querySelector('.coffee-taste .value').textContent = cafe.coffeeTaste;
@@ -92,7 +92,7 @@ const app = {
   },
 
   fillCardsContainer(cafeList) {
-    cafeList.forEach(cafe => app.addCafeCard(cafe));
+    cafeList.forEach(cafe => app.addCard(cafe));
   },
 
   clearCardsContainer() {
