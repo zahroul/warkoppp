@@ -6,6 +6,9 @@
     "stylelint": "^8.2.0",
     "stylelint-order": "^0.7.0"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "eslintConfig": {
     "extends": "airbnb-base",
     "env": {
