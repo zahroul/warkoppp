@@ -53,3 +53,11 @@ input {
         padding: $padding-content $padding-content-small;
     }
 }
+
+@media screen and (min-width: $breakpoint-medium) {
+    .search-input-sticky {
+        max-width: 40rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
