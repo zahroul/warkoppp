@@ -1,0 +1,35 @@
+// ----------------------------------------------------------------------------
+// Main
+// ----------------------------------------------------------------------------
+
+main {
+    position: relative;
+    padding-right: $padding-content;
+    padding-left: $padding-content;
+}
+
+.header {
+    position: absolute;
+    top: 25vh;
+    right: $padding-content;
+    left: $padding-content;
+}
+
+.header-static {
+    position: static;
+    margin-bottom: $margin-layout;
+
+    h1 {
+        margin-top: $margin-component;
+    }
+}
+
+.main-heading {
+    margin-top: 0;
+    margin-bottom: $margin-component;
+
+    div {
+        font-size: $font-size-large;
+        font-weight: $font-weight-normal;
+    }
+}
