@@ -33,3 +33,15 @@ main {
         font-weight: $font-weight-normal;
     }
 }
+
+@media screen and (min-width: 35.5rem) {
+    main {
+        padding-right: $padding-content-small;
+        padding-left: $padding-content-small;
+    }
+
+    .main-header {
+        right: $padding-content-small;
+        left: $padding-content-small;
+    }
+}
