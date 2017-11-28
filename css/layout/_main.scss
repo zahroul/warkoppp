@@ -34,7 +34,7 @@ main {
     }
 }
 
-@media screen and (min-width: 35.5rem) {
+@media screen and (min-width: $breakpoint-small) {
     main {
         padding-right: $padding-content-small;
         padding-left: $padding-content-small;
