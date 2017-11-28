@@ -31,3 +31,16 @@
     margin-bottom: $margin-component-content;
     line-height: $line-height-heading;
 }
+
+@media screen and (min-width: 35.5rem) {
+    .card {
+        > div {
+            width: 50%;
+            vertical-align: top;
+
+            &:not(:last-child) {
+                width: 25%;
+            }
+        }
+    }
+}
