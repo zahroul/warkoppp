@@ -129,7 +129,7 @@ const app = {
 
 document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim();
-  const header = document.querySelector('header');
+  const header = document.querySelector('main header');
   const cards = app.cardsContainer;
   const alert = document.querySelector('.alert');
 
