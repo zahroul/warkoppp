@@ -45,3 +45,11 @@ main {
         left: $padding-content-small;
     }
 }
+
+@media screen and (min-width: $breakpoint-medium) {
+    main {
+        max-width: 40rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
