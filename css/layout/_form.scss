@@ -47,3 +47,9 @@ input {
     position: absolute;
     top: 0.0625rem;
 }
+
+@media screen and (min-width: 35.5rem) {
+    .search-input-sticky {
+        padding: $padding-content $padding-content-small;
+    }
+}
