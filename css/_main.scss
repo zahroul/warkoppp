@@ -8,18 +8,18 @@ main {
     padding-left: $padding-content;
 }
 
-.header {
+.main-header {
     position: absolute;
     top: 25vh;
     right: $padding-content;
     left: $padding-content;
 }
 
-.header-static {
+.main-header-static {
     position: static;
     margin-bottom: $margin-layout;
 
-    h1 {
+    .main-heading {
         margin-top: $margin-component;
     }
 }

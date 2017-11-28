@@ -139,7 +139,7 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (cards.hasChildNodes()) app.clearCardsContainer();
 
-  if (header.className !== 'header-static') header.className = 'header-static';
+  if (header.className !== 'main-header-static') header.className = 'main-header-static';
 
   return app.getCafeList()
     .then(JSON.parse)
