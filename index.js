@@ -21,6 +21,9 @@ http.createServer((request, response) => {
     case '/app.js':
       readFile(`${__dirname}${requestUrl}`, response, 'text/javascript');
       break;
+    case '/favicon.ico':
+      readFile(`${__dirname}${requestUrl}`, response, 'image/x-icon');
+      break;
     default:
       readFile(`${__dirname}/index.html`, response, 'text/html');
   }
