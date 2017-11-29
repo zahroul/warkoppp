@@ -11,7 +11,7 @@ const app = {
         }
       };
 
-      request.open('GET', 'cafe-data.json');
+      request.open('GET', 'https://api.myjson.com/bins/193mab');
       request.send();
     }));
   },

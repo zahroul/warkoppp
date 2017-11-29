@@ -21,9 +21,6 @@ http.createServer((request, response) => {
     case '/app.js':
       readFile(`${__dirname}${requestUrl}`, response, 'text/javascript');
       break;
-    case '/cafe-data.json':
-      readFile(`${__dirname}${requestUrl}`, response, 'application/json');
-      break;
     default:
       readFile(`${__dirname}/index.html`, response, 'text/html');
   }
