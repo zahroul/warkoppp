@@ -1,0 +1,65 @@
+// ----------------------------------------------------------------------------
+// Animations
+// ----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
+// Line
+
+@-webkit-keyframes line {
+    0% {
+        -webkit-transform: rotate(0);
+        stroke-dasharray: 2, 85.964;
+    }
+
+    50% {
+        stroke-dasharray: 66.973, 21.9911;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        -webkit-transform: rotate(90deg);
+        stroke-dasharray: 2, 85.964;
+        stroke-dashoffset: -65.973;
+    }
+}
+
+@keyframes line {
+    0% {
+        transform: rotate(0);
+        stroke-dasharray: 2, 85.964;
+    }
+
+    50% {
+        stroke-dasharray: 66.973, 21.9911;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        transform: rotate(90deg);
+        stroke-dasharray: 2, 85.964;
+        stroke-dashoffset: -65.973;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Rotate
+
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(450deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(450deg);
+    }
+}
