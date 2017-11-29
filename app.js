@@ -1,4 +1,5 @@
 const app = {
+  loadingIndicator: document.querySelector('.loading-indicator'),
   cardsContainer: document.querySelector('.cards-container'),
 
   getCafeList() {
@@ -119,6 +120,8 @@ const app = {
   },
 
   showSearchResult(keyword, foundCafeList) {
+    this.loadingIndicator.classList.add('hidden');
+
     if (foundCafeList.length === 0) return this.showSearchAlert(keyword);
 
     if (this.cardsContainer.classList.contains('hidden')) this.cardsContainer.classList.remove('hidden');
@@ -140,6 +143,8 @@ document.querySelector('input').addEventListener('change', (event) => {
   if (cards.hasChildNodes()) app.clearCardsContainer();
 
   if (header.className !== 'main-header-static') header.className = 'main-header-static';
+
+  app.loadingIndicator.classList.remove('hidden');
 
   return app.getCafeList()
     .then(JSON.parse)

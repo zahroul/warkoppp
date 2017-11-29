@@ -9,12 +9,12 @@
     'layout/main',
     'layout/form';
 
-// Module
-@import
-    'module/helper',
-    'module/accessibility';
-
 // Component
 @import
     'search',
     'card';
+
+// Module
+@import
+    'module/helper',
+    'module/accessibility';
