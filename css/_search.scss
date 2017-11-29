@@ -2,6 +2,43 @@
 // Search
 // ----------------------------------------------------------------------------
 
+.search-input {
+    display: block;
+    position: relative;
+}
+
+.search-input-sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: $padding-content;
+    background-color: $color-background;
+
+    .search-icon {
+        top: 1.0625rem;
+    }
+}
+
+.search-icon {
+    position: absolute;
+    top: 0.0625rem;
+}
+
+@media screen and (min-width: $breakpoint-small) {
+    .search-input-sticky {
+        padding: $padding-content $padding-content-small;
+    }
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+    .search-input-sticky {
+        max-width: 40rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 .loading-indicator {
     display: block;
     margin-right: auto;
