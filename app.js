@@ -157,7 +157,7 @@ document.querySelector('input').addEventListener('change', (event) => {
 window.addEventListener('scroll', () => {
   const searchInput = document.querySelector('.search-input');
 
-  if (window.scrollY >= 114) {
+  if (window.scrollY >= 80) {
     document.body.className = 'body-sticky';
     return searchInput.classList.add('search-input-sticky');
   }
