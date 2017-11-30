@@ -144,6 +144,8 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (header.className !== 'main-header-static') header.className = 'main-header-static';
 
+  header.querySelector('.main-heading div').className = 'hidden';
+
   app.loadingIndicator.classList.remove('hidden');
 
   return app.getCafeList()
