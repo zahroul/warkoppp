@@ -16,8 +16,8 @@
     background-color: $color-background;
     box-shadow: 0 0.0625rem 1rem $color-box-shadow;
 
-    .search-icon {
-        top: 1.0625rem;
+    div {
+        position: relative;
     }
 }
 
@@ -33,7 +33,7 @@
 }
 
 @media screen and (min-width: $breakpoint-medium) {
-    .search-input-sticky {
+    .search-input-sticky div {
         max-width: 40rem;
         margin-right: auto;
         margin-left: auto;
