@@ -138,7 +138,7 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (cards.hasChildNodes()) app.clearCardsContainer();
 
-  if (header.className !== 'main-header-static') header.className = 'main-header-static';
+  header.className = 'main-header-static';
 
   header.querySelector('.main-heading div').className = 'hidden';
 
