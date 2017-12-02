@@ -159,11 +159,13 @@ document.querySelector('input').addEventListener('change', (event) => {
 window.addEventListener('scroll', () => {
   const searchInput = document.querySelector('.search-input');
 
+  // Add the`sticky` classes after the window scroller reaching a particular vertical coordinate
   if (window.scrollY >= 80) {
     document.body.className = 'body-sticky';
     return searchInput.classList.add('search-input-sticky');
   }
 
+  // Remove the `sticky` classes
   document.body.removeAttribute('class');
   return searchInput.classList.remove('search-input-sticky');
 });
