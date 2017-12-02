@@ -111,10 +111,6 @@ const app = {
     return alert;
   },
 
-  isAlertExist(alert) {
-    return document.body.contains(alert);
-  },
-
   showSearchAlert(keyword) {
     return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
   },
@@ -138,7 +134,7 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   if (keyword === '') return false;
 
-  if (app.isAlertExist(alert)) alert.remove();
+  if (document.body.contains(alert)) alert.remove();
 
   if (cards.hasChildNodes()) app.clearCardsContainer();
 
