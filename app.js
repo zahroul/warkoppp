@@ -89,11 +89,11 @@ const app = {
     card.querySelector('.price .value').textContent = cafe.price;
     card.querySelector('.location .value').textContent = cafe.location;
 
-    this.cardsContainer.appendChild(card);
+    return card;
   },
 
   fillCardsContainer(cafeList) {
-    cafeList.forEach(cafe => app.addCard(cafe));
+    cafeList.forEach(cafe => this.cardsContainer.appendChild(this.addCard(cafe)));
   },
 
   clearCardsContainer() {
