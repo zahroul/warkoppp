@@ -184,7 +184,7 @@ document.querySelector('input').addEventListener('change', (event) => {
   const cards = app.cardsContainer;
   const alert = document.querySelector('.alert');
 
-  // Check whether the search keyword is empty
+  // Checks whether the search keyword is empty
   if (keyword === '') return false;
 
   // Remove the alert if the document contain it
@@ -199,7 +199,7 @@ document.querySelector('input').addEventListener('change', (event) => {
   // Hide the main heading description
   header.querySelector('.main-heading div').className = 'hidden';
 
-  // Show the app loading indicator
+  // Shows the app loading indicator
   app.loadingIndicator.classList.remove('hidden');
 
   return app.getCafeList()
