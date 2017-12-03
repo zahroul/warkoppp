@@ -2,6 +2,11 @@ const app = {
   loadingIndicator: document.querySelector('.loading-indicator'),
   cardsContainer: document.querySelector('.cards-container'),
 
+  /**
+   * Gets the cafe list from an external data source
+   *
+   * @returns {Promise<any>}
+   */
   getCafeList() {
     return new Promise(((resolve) => {
       const request = new XMLHttpRequest();
@@ -17,6 +22,13 @@ const app = {
     }));
   },
 
+  /**
+   * Searches through the passed in cafe list data by the passed in location keyword
+   *
+   * @param cafeList
+   * @param keyword
+   * @returns {Array}
+   */
   searchCafe(cafeList, keyword) {
     const foundCafeList = [];
 
@@ -27,6 +39,13 @@ const app = {
     return foundCafeList;
   },
 
+  /**
+   * Matches the passed in cafe location with the passed in location keyword
+   *
+   * @param location
+   * @param keyword
+   * @returns {boolean}
+   */
   matchLocation(location, keyword) {
     let charIndex = 0;
 
@@ -45,6 +64,12 @@ const app = {
     return charIndex === keyword.length;
   },
 
+  /**
+   * Creates a card based on the passed in cafe data
+   *
+   * @param cafe
+   * @returns {HTMLLIElement}
+   */
   createCard(cafe) {
     const card = document.createElement('li');
     const cafeName = document.createElement('h2');
@@ -68,6 +93,15 @@ const app = {
     return card;
   },
 
+  /**
+   * Creates a cafe card property based on the passed in class name, attribute content,
+   * and value content
+   *
+   * @param className
+   * @param attributeContent
+   * @param valueContent
+   * @returns {HTMLDivElement}
+   */
   createCardProperty(className, attributeContent, valueContent) {
     const property = document.createElement('div');
     const items = [
@@ -89,16 +123,30 @@ const app = {
     return property;
   },
 
+  /**
+   * Fill in the cards container with the passed in cafe list data
+   *
+   * @param cafeList
+   */
   fillCardsContainer(cafeList) {
     cafeList.forEach(cafe => this.cardsContainer.appendChild(this.createCard(cafe)));
   },
 
+  /**
+   * Clear the cards container
+   */
   clearCardsContainer() {
     while (this.cardsContainer.firstChild) {
       this.cardsContainer.removeChild(this.cardsContainer.firstChild);
     }
   },
 
+  /**
+   * Creates a search alert based on the passed in location keyword
+   *
+   * @param keyword
+   * @returns {HTMLDivElement}
+   */
   createSearchAlert(keyword) {
     const alert = document.createElement('div');
 
@@ -108,6 +156,13 @@ const app = {
     return alert;
   },
 
+  /**
+   * Shows the search result for the passed in location keyword
+   *
+   * @param keyword
+   * @param foundCafeList
+   * @returns {*}
+   */
   showSearchResult(keyword, foundCafeList) {
     this.loadingIndicator.classList.add('hidden');
 
