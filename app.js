@@ -163,14 +163,18 @@ const app = {
    * @param foundCafeList
    * @returns {*}
    */
-  showSearchResult(keyword, foundCafeList) {
+  showSearchResult(foundCafeList, keyword) {
+    // Hide the search loading indicator
     this.loadingIndicator.classList.add('hidden');
 
+    // Shows the search alert if the found cafe list is empty
     if (foundCafeList.length === 0) return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
 
-    if (this.cardsContainer.classList.contains('hidden')) this.cardsContainer.classList.remove('hidden');
+    // Fill in the cards container
+    this.fillCardsContainer(foundCafeList);
 
-    return this.fillCardsContainer(foundCafeList);
+    // Shows the cards container
+    return this.cardsContainer.classList.remove('hidden');
   },
 };
 
@@ -201,7 +205,7 @@ document.querySelector('input').addEventListener('change', (event) => {
   return app.getCafeList()
     .then(JSON.parse)
     .then(response => app.searchCafe(response.cafeList, keyword))
-    .then(foundCafeList => app.showSearchResult(keyword, foundCafeList));
+    .then(foundCafeList => app.showSearchResult(foundCafeList, keyword));
 });
 
 window.addEventListener('scroll', () => {
