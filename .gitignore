@@ -1,7 +1,7 @@
 node_modules/
 .idea/
 .sass-cache/
+*.lock
 *-data.json
 *.css*
-package-lock.json
 .env
