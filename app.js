@@ -48,19 +48,22 @@ const app = {
   createCard(cafe) {
     const card = document.createElement('li');
     const cafeName = document.createElement('h2');
-
-    const coffeeTaste = this.createCardProperty('coffee-taste', 'Rasa Kopinya', cafe.coffeeTaste);
-    const price = this.createCardProperty('price', 'Harga', cafe.price);
-    const location = this.createCardProperty('location', 'Lokasi', cafe.location);
+    const cafeProperties = [
+      ['coffee-taste', 'Rasa Kopinya', cafe.coffeeTaste],
+      ['price', 'Harga', cafe.price],
+      ['location', 'Lokasi', cafe.location],
+    ];
 
     card.className = 'card';
     cafeName.className = 'card-heading';
     cafeName.textContent = cafe.name;
-
     card.appendChild(cafeName);
-    card.appendChild(coffeeTaste);
-    card.appendChild(price);
-    card.appendChild(location);
+
+    cafeProperties.forEach((property) => {
+      const cardProperty = this.createCardProperty(property[0], property[1], property[2]);
+
+      card.appendChild(cardProperty);
+    });
 
     return card;
   },
