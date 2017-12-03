@@ -45,16 +45,17 @@ const app = {
     return charIndex === keyword.length;
   },
 
-  createCard() {
+  createCard(cafe) {
     const card = document.createElement('li');
     const cafeName = document.createElement('h2');
 
-    const coffeeTaste = this.createCardProperty('coffee-taste', 'Rasa Kopinya');
-    const price = this.createCardProperty('price', 'Harga');
-    const location = this.createCardProperty('location', 'Lokasi');
+    const coffeeTaste = this.createCardProperty('coffee-taste', 'Rasa Kopinya', cafe.coffeeTaste);
+    const price = this.createCardProperty('price', 'Harga', cafe.price);
+    const location = this.createCardProperty('location', 'Lokasi', cafe.location);
 
     card.className = 'card';
     cafeName.className = 'card-heading';
+    cafeName.textContent = cafe.name;
 
     card.appendChild(cafeName);
     card.appendChild(coffeeTaste);
@@ -64,7 +65,7 @@ const app = {
     return card;
   },
 
-  createCardProperty(className, textContent) {
+  createCardProperty(className, attributeContent, valueContent) {
     const property = document.createElement('div');
     const attribute = property.cloneNode(true);
     const value = property.cloneNode(true);
@@ -72,28 +73,18 @@ const app = {
     property.className = className;
 
     attribute.className = 'attribute';
-    attribute.textContent = textContent;
+    attribute.textContent = attributeContent;
     property.appendChild(attribute);
 
     value.className = 'value';
+    value.textContent = valueContent;
     property.appendChild(value);
 
     return property;
   },
 
-  addCard(cafe) {
-    const card = this.createCard();
-
-    card.querySelector('h2').textContent = cafe.name;
-    card.querySelector('.coffee-taste .value').textContent = cafe.coffeeTaste;
-    card.querySelector('.price .value').textContent = cafe.price;
-    card.querySelector('.location .value').textContent = cafe.location;
-
-    return card;
-  },
-
   fillCardsContainer(cafeList) {
-    cafeList.forEach(cafe => this.cardsContainer.appendChild(this.addCard(cafe)));
+    cafeList.forEach(cafe => this.cardsContainer.appendChild(this.createCard(cafe)));
   },
 
   clearCardsContainer() {
