@@ -108,14 +108,10 @@ const app = {
     return alert;
   },
 
-  showSearchAlert(keyword) {
-    return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
-  },
-
   showSearchResult(keyword, foundCafeList) {
     this.loadingIndicator.classList.add('hidden');
 
-    if (foundCafeList.length === 0) return this.showSearchAlert(keyword);
+    if (foundCafeList.length === 0) return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
 
     if (this.cardsContainer.classList.contains('hidden')) this.cardsContainer.classList.remove('hidden');
 
