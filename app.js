@@ -70,18 +70,21 @@ const app = {
 
   createCardProperty(className, attributeContent, valueContent) {
     const property = document.createElement('div');
-    const attribute = property.cloneNode(true);
-    const value = property.cloneNode(true);
+    const items = [
+      ['attribute', attributeContent],
+      ['value', valueContent],
+    ];
 
     property.className = className;
 
-    attribute.className = 'attribute';
-    attribute.textContent = attributeContent;
-    property.appendChild(attribute);
+    items.forEach((item) => {
+      const propertyItem = property.cloneNode(true);
+      const [attribute, value] = [item[0], item[1]];
 
-    value.className = 'value';
-    value.textContent = valueContent;
-    property.appendChild(value);
+      propertyItem.className = attribute;
+      propertyItem.textContent = value;
+      property.appendChild(propertyItem);
+    });
 
     return property;
   },
