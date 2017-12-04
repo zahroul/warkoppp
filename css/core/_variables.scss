@@ -11,7 +11,6 @@ $padding-content: 1rem;
 $padding-content-small: 1.5rem;
 
 // Colors
-$astral: #3770aa;
 $sgi-gray-16: #282828;
 $sgi-gray-32: #515151;
 $sgi-gray-light: #aaa;
@@ -24,7 +23,7 @@ $color-text-input: $sgi-gray-32;
 $color-text-input-placeholder: $sgi-gray-light;
 
 $color-border-input: $sgi-gray-76;
-$color-border-input-focus: $astral;
+$color-border-input-focus: $sgi-gray-32;
 
 $color-background: $white;
 $color-box-shadow: $sgi-gray-76;
