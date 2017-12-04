@@ -112,7 +112,7 @@ const app = {
     property.className = className;
 
     items.forEach((item) => {
-      const propertyItem = property.cloneNode(true);
+      const propertyItem = document.createElement('span');
       const [attribute, value] = [item[0], item[1]];
 
       propertyItem.className = attribute;
