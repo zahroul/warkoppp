@@ -10,20 +10,8 @@
 .card {
     margin-bottom: $margin-component;
 
-    div {
-        &:not(:last-child) {
-            margin-bottom: $margin-component-content;
-        }
-
-        > span:first-child {
-            margin-right: $margin-component-content;
-        }
-    }
-
-    .attribute {
-        color: $color-text-secondary;
-        font-size: $font-size-small;
-        text-transform: uppercase;
+    div:not(:last-child) {
+        margin-bottom: $margin-component-content;
     }
 }
 

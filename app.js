@@ -74,9 +74,9 @@ const app = {
     const card = document.createElement('li');
     const cafeName = document.createElement('h2');
     const cafeProperties = [
-      ['coffee-taste', 'Rasa Kopinya', cafe.coffeeTaste],
-      ['price', 'Harga', cafe.price],
-      ['location', 'Lokasi', cafe.location],
+      ['coffee-taste', cafe.coffeeTaste],
+      ['price', cafe.price],
+      ['location', cafe.location],
     ];
 
     card.className = 'card';
@@ -85,7 +85,7 @@ const app = {
     card.appendChild(cafeName);
 
     cafeProperties.forEach((property) => {
-      const cardProperty = this.createCardProperty(property[0], property[1], property[2]);
+      const cardProperty = this.createCardProperty(property[0], property[1]);
 
       card.appendChild(cardProperty);
     });
@@ -94,31 +94,19 @@ const app = {
   },
 
   /**
-   * Creates a cafe card property based on the passed in class name, attribute content,
-   * and value content
+   * Creates a cafe card property based on the passed in class name and value content
    *
    * @param className
-   * @param attributeContent
    * @param valueContent
    * @returns {HTMLDivElement}
    */
-  createCardProperty(className, attributeContent, valueContent) {
+  createCardProperty(className, valueContent) {
     const property = document.createElement('div');
-    const items = [
-      ['attribute', attributeContent],
-      ['value', valueContent],
-    ];
+    const propertyValue = document.createElement('span');
 
     property.className = className;
-
-    items.forEach((item) => {
-      const propertyItem = document.createElement('span');
-      const [attribute, value] = [item[0], item[1]];
-
-      propertyItem.className = attribute;
-      propertyItem.textContent = value;
-      property.appendChild(propertyItem);
-    });
+    propertyValue.textContent = valueContent;
+    property.appendChild(propertyValue);
 
     return property;
   },
