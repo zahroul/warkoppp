@@ -75,7 +75,6 @@ const app = {
     const cafeName = document.createElement('h2');
     const cafeProperties = [
       ['coffee-taste', cafe.coffeeTaste],
-      ['price', cafe.price],
       ['location', cafe.location],
     ];
 
