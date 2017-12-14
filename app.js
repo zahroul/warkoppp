@@ -73,37 +73,29 @@ const app = {
   createCard(cafe) {
     const card = document.createElement('li');
     const cafeName = document.createElement('h2');
-    const cafeProperties = [
-      ['location', cafe.location],
-    ];
 
     card.className = 'card';
     cafeName.className = 'card-heading';
     cafeName.textContent = cafe.name;
     card.appendChild(cafeName);
-
-    cafeProperties.forEach((property) => {
-      const cardProperty = this.createCardProperty(property[0], property[1]);
-
-      card.appendChild(cardProperty);
-    });
+    card.appendChild(this.createCardProperty(['location', cafe.location]));
 
     return card;
   },
 
   /**
-   * Creates a cafe card property based on the passed in class name and value content
+   * Creates a cafe card property based on the passed in data
    *
-   * @param className
-   * @param valueContent
+   * @param data
    * @returns {HTMLDivElement}
    */
-  createCardProperty(className, valueContent) {
+  createCardProperty(data) {
+    const [attribute, value] = data;
     const property = document.createElement('div');
     const propertyValue = document.createElement('span');
 
-    property.className = className;
-    propertyValue.textContent = valueContent;
+    property.className = attribute;
+    propertyValue.textContent = value;
     property.appendChild(propertyValue);
 
     return property;
