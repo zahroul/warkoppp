@@ -10,8 +10,19 @@
 .card {
     margin-bottom: $margin-component;
 
-    div:not(:last-child) {
-        margin-bottom: $margin-component-content;
+    div {
+        &:not(:last-child) {
+            margin-bottom: $margin-component-content;
+        }
+
+        > * {
+            vertical-align: middle;
+        }
+    }
+
+    svg {
+        margin-right: $margin-component-content / 2;
+        fill: $color-text;
     }
 }
 

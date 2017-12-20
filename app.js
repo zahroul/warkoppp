@@ -78,7 +78,7 @@ const app = {
     cafeName.className = 'card-heading';
     cafeName.textContent = cafe.name;
     card.appendChild(cafeName);
-    card.appendChild(this.createCardProperty(['location', cafe.location]));
+    card.appendChild(this.createCardProperty(['location', 'icon-location', cafe.location]));
 
     return card;
   },
@@ -90,11 +90,12 @@ const app = {
    * @returns {HTMLDivElement}
    */
   createCardProperty(data) {
-    const [attribute, value] = data;
+    const [attribute, icon, value] = data;
     const property = document.createElement('div');
     const propertyValue = document.createElement('span');
 
     property.className = attribute;
+    property.innerHTML = `<svg width="24" height="24"><use xlink:href="#${icon}"></svg>`;
     propertyValue.textContent = value;
     property.appendChild(propertyValue);
 
