@@ -1,6 +1,6 @@
 const app = {
   loadingIndicator: document.querySelector('.loading-indicator'),
-  cardsContainer: document.querySelector('section'),
+  cafeList: document.getElementById('cafe-list'),
 
   /**
    * Gets the cafe list from an external data source
@@ -97,20 +97,20 @@ const app = {
   },
 
   /**
-   * Fill in the cards container with the passed in cafe list data
+   * Fill in the cafe list element with the passed in cafe list items
    *
-   * @param cafeList
+   * @param cafeListItems
    */
-  fillCardsContainer(cafeList) {
-    cafeList.forEach(cafe => this.cardsContainer.appendChild(this.createCard(cafe)));
+  fillCafeList(cafeListItems) {
+    cafeListItems.forEach(cafeListItem => this.cafeList.appendChild(this.createCard(cafeListItem)));
   },
 
   /**
-   * Clear the cards container
+   * Clear the cafe list element
    */
-  clearCardsContainer() {
-    while (this.cardsContainer.firstChild) {
-      this.cardsContainer.removeChild(this.cardsContainer.firstChild);
+  clearCafeList() {
+    while (this.cafeList.firstChild) {
+      this.cafeList.removeChild(this.cafeList.firstChild);
     }
   },
 
@@ -130,31 +130,32 @@ const app = {
   },
 
   /**
-   * Shows the search result for the passed in location keyword
+   * Shows the search result for the passed in cafe list items and location keyword
    *
    * @param keyword
-   * @param foundCafeList
+   * @param cafeListItems
    * @returns {*}
    */
-  showSearchResult(foundCafeList, keyword) {
+  showSearchResult(cafeListItems, keyword) {
     // Hide the search loading indicator
     this.loadingIndicator.setAttribute('hidden', '');
 
-    // Shows the search alert if the found cafe list is empty
-    if (foundCafeList.length === 0) return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
+    if (cafeListItems.length === 0) {
+      // Shows the search alert if the cafe data is empty
+      document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cafeList);
+    } else {
+      // Fill in the cafe list element
+      this.fillCafeList(cafeListItems);
 
-    // Fill in the cards container
-    this.fillCardsContainer(foundCafeList);
-
-    // Shows the cards container
-    return this.cardsContainer.removeAttribute('hidden');
+      // Shows the cafe list element
+      this.cafeList.removeAttribute('hidden');
+    }
   },
 };
 
 document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim();
   const header = document.querySelector('main header');
-  const cards = app.cardsContainer;
   const alert = document.querySelector('.alert');
 
   // Checks whether the search keyword is empty
@@ -163,8 +164,8 @@ document.querySelector('input').addEventListener('change', (event) => {
   // Remove the alert if the document contain it
   if (document.body.contains(alert)) alert.remove();
 
-  // Clear the cards container if it not empty
-  if (cards.hasChildNodes()) app.clearCardsContainer();
+  // Clear the cafe list element if it not empty
+  if (app.cafeList.hasChildNodes()) app.clearCafeList();
 
   // Add class `main-header-static` to the main header
   header.className = 'main-header-static';
@@ -178,7 +179,7 @@ document.querySelector('input').addEventListener('change', (event) => {
   return app.getCafeList()
     .then(JSON.parse)
     .then(response => app.searchCafe(response.cafeList, keyword))
-    .then(foundCafeList => app.showSearchResult(foundCafeList, keyword));
+    .then(cafeListItems => app.showSearchResult(cafeListItems, keyword));
 });
 
 window.addEventListener('scroll', () => {
