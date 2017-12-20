@@ -1,6 +1,6 @@
 const app = {
   loadingIndicator: document.querySelector('.loading-indicator'),
-  cardsContainer: document.querySelector('.cards-container'),
+  cardsContainer: document.querySelector('section'),
 
   /**
    * Gets the cafe list from an external data source
@@ -71,14 +71,12 @@ const app = {
    * @returns {HTMLLIElement}
    */
   createCard(cafe) {
-    const card = document.createElement('li');
+    const card = document.createElement('article');
     const cafeName = document.createElement('h2');
 
-    card.className = 'card';
-    cafeName.className = 'card-heading';
     cafeName.textContent = cafe.name;
     card.appendChild(cafeName);
-    card.appendChild(this.createCardProperty(['location', 'icon-location', cafe.location]));
+    card.appendChild(this.createCardProperty(['icon-location', cafe.location]));
 
     return card;
   },
@@ -90,14 +88,10 @@ const app = {
    * @returns {HTMLDivElement}
    */
   createCardProperty(data) {
-    const [attribute, icon, value] = data;
+    const [icon, value] = data;
     const property = document.createElement('div');
-    const propertyValue = document.createElement('span');
 
-    property.className = attribute;
-    property.innerHTML = `<svg><use xlink:href="#${icon}"></svg>`;
-    propertyValue.textContent = value;
-    property.appendChild(propertyValue);
+    property.innerHTML = `<svg><use xlink:href="#${icon}"></svg>${value}`;
 
     return property;
   },
