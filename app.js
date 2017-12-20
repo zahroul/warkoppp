@@ -65,30 +65,32 @@ const app = {
   },
 
   /**
-   * Creates a card based on the passed in cafe data
+   * Creates a cafe item element based on the passed in cafe list item
    *
-   * @param cafe
+   * @param cafeListItem
    * @returns {HTMLLIElement}
    */
-  createCard(cafe) {
-    const card = document.createElement('article');
-    const cafeName = document.createElement('h2');
+  createCafeItem(cafeListItem) {
+    const cafeItem = document.createElement('article');
+    const name = document.createElement('h2');
 
-    cafeName.textContent = cafe.name;
-    card.appendChild(cafeName);
-    card.appendChild(this.createCardProperty(['icon-location', cafe.location]));
+    cafeItem.setAttribute('tabindex', '0');
 
-    return card;
+    name.textContent = cafeListItem.name;
+    cafeItem.appendChild(name);
+    cafeItem.appendChild(this.createCafeItemProperty(['icon-location', cafeListItem.location]));
+
+    return cafeItem;
   },
 
   /**
-   * Creates a cafe card property based on the passed in data
+   * Creates a cafe item property element based on the passed in property data
    *
-   * @param data
+   * @param propertyData
    * @returns {HTMLDivElement}
    */
-  createCardProperty(data) {
-    const [icon, value] = data;
+  createCafeItemProperty(propertyData) {
+    const [icon, value] = propertyData;
     const property = document.createElement('div');
 
     property.innerHTML = `<svg><use xlink:href="#${icon}"></svg>${value}`;
@@ -102,7 +104,9 @@ const app = {
    * @param cafeListItems
    */
   fillCafeList(cafeListItems) {
-    cafeListItems.forEach(cafeListItem => this.cafeList.appendChild(this.createCard(cafeListItem)));
+    cafeListItems.forEach((cafeListItem) => {
+      this.cafeList.appendChild(this.createCafeItem(cafeListItem));
+    });
   },
 
   /**
