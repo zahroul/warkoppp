@@ -2,25 +2,14 @@
 // Card
 // ----------------------------------------------------------------------------
 
-.cards-container {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.card {
-    margin-bottom: $margin-component;
+article {
+    h2 {
+        margin-bottom: $margin-component-content;
+    }
 
     div {
         display: flex;
         align-items: center;
-
-        &:not(:last-child) {
-            margin-bottom: $margin-component-content;
-        }
-
-        > *:last-child {
-            flex-basis: 100%;
-        }
     }
 
     svg {
@@ -30,10 +19,4 @@
         margin-right: $margin-component-content;
         fill: $color-text;
     }
-}
-
-.card-heading {
-    margin-top: $margin-component-content;
-    margin-bottom: $margin-component-content;
-    line-height: $line-height-heading;
 }
