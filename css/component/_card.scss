@@ -11,17 +11,23 @@
     margin-bottom: $margin-component;
 
     div {
+        display: flex;
+        align-items: center;
+
         &:not(:last-child) {
             margin-bottom: $margin-component-content;
         }
 
-        > * {
-            vertical-align: middle;
+        > *:last-child {
+            flex-basis: 100%;
         }
     }
 
     svg {
-        margin-right: $margin-component-content / 2;
+        flex-basis: 1.5rem;
+        flex-shrink: 0;
+        height: 1.5rem;
+        margin-right: $margin-component-content;
         fill: $color-text;
     }
 }

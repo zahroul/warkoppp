@@ -95,7 +95,7 @@ const app = {
     const propertyValue = document.createElement('span');
 
     property.className = attribute;
-    property.innerHTML = `<svg width="24" height="24"><use xlink:href="#${icon}"></svg>`;
+    property.innerHTML = `<svg><use xlink:href="#${icon}"></svg>`;
     propertyValue.textContent = value;
     property.appendChild(propertyValue);
 
