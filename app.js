@@ -138,7 +138,7 @@ const app = {
    */
   showSearchResult(foundCafeList, keyword) {
     // Hide the search loading indicator
-    this.loadingIndicator.classList.add('hidden');
+    this.loadingIndicator.setAttribute('hidden', '');
 
     // Shows the search alert if the found cafe list is empty
     if (foundCafeList.length === 0) return document.querySelector('main').insertBefore(this.createSearchAlert(keyword), this.cardsContainer);
@@ -147,7 +147,7 @@ const app = {
     this.fillCardsContainer(foundCafeList);
 
     // Shows the cards container
-    return this.cardsContainer.classList.remove('hidden');
+    return this.cardsContainer.removeAttribute('hidden');
   },
 };
 
@@ -170,10 +170,10 @@ document.querySelector('input').addEventListener('change', (event) => {
   header.className = 'main-header-static';
 
   // Hide the main heading description
-  header.querySelector('.main-heading div').className = 'hidden';
+  header.querySelector('.main-heading div').setAttribute('hidden', '');
 
   // Shows the app loading indicator
-  app.loadingIndicator.classList.remove('hidden');
+  app.loadingIndicator.removeAttribute('hidden');
 
   return app.getCafeList()
     .then(JSON.parse)
