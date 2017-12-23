@@ -10,6 +10,10 @@ article {
     div {
         display: flex;
         align-items: center;
+
+        + div {
+            margin-top: $margin-component-content;
+        }
     }
 
     svg {

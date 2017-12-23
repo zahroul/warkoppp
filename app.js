@@ -79,6 +79,7 @@ const app = {
     name.textContent = cafeListItem.name;
     cafeItem.appendChild(name);
     cafeItem.appendChild(this.createCafeItemProperty(['icon-location', cafeListItem.location]));
+    cafeItem.appendChild(this.createCafeItemProperty(['icon-like', cafeListItem.likes.length]));
 
     return cafeItem;
   },
