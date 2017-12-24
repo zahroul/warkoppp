@@ -7,19 +7,25 @@ article {
         margin-bottom: $margin-component-content;
     }
 
-    div {
-        display: flex;
+    ul {
+        list-style-type: none;
+        margin-top: 0;
+        padding-left: 0;
+    }
+
+    li {
+        display: inline-flex;
         align-items: center;
 
-        + div {
-            margin-top: $margin-component-content;
+        &:not(:last-child) {
+            margin-right: $margin-component;
         }
     }
 
     svg {
-        flex-basis: 1.5rem;
         flex-shrink: 0;
-        height: 1.5rem;
+        width: 1.5rem;
+        height: 2rem;
         margin-right: $margin-component-content;
         fill: $color-text;
     }

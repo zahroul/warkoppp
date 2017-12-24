@@ -73,13 +73,15 @@ const app = {
   createCafeItem(cafeListItem) {
     const cafeItem = document.createElement('article');
     const name = document.createElement('h2');
+    const propertyList = document.createElement('ul');
 
     cafeItem.setAttribute('tabindex', '0');
 
     name.textContent = cafeListItem.name;
     cafeItem.appendChild(name);
-    cafeItem.appendChild(this.createCafeItemProperty(['icon-location', cafeListItem.location]));
-    cafeItem.appendChild(this.createCafeItemProperty(['icon-like', cafeListItem.likes.length]));
+    cafeItem.appendChild(propertyList);
+    propertyList.appendChild(this.createCafeItemProperty(['icon-like', cafeListItem.likes.length]));
+    propertyList.appendChild(this.createCafeItemProperty(['icon-location', cafeListItem.location]));
 
     return cafeItem;
   },
@@ -92,7 +94,7 @@ const app = {
    */
   createCafeItemProperty(propertyData) {
     const [icon, value] = propertyData;
-    const property = document.createElement('div');
+    const property = document.createElement('li');
 
     property.innerHTML = `<svg><use xlink:href="#${icon}"></svg>${value}`;
 
