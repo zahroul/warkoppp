@@ -9,6 +9,8 @@ article {
 
     ul {
         list-style-type: none;
+        display: flex;
+        justify-content: space-between;
         margin-top: 0;
         padding-left: 0;
     }
@@ -17,8 +19,12 @@ article {
         display: inline-flex;
         align-items: center;
 
-        &:not(:last-child) {
-            margin-right: $margin-component;
+        &:last-child {
+            flex-shrink: 0;
+        }
+
+        + li {
+            margin-left: $margin-component;
         }
     }
 

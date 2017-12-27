@@ -24,3 +24,15 @@ input {
 [type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+
+button {
+    border: 0.0625rem solid $color-border-input;
+    border-radius: 0.125rem;
+    color: $color-text;
+    font: inherit;
+    background-color: $white;
+
+    * {
+        vertical-align: middle;
+    }
+}

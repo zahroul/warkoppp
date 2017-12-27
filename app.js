@@ -74,18 +74,11 @@ const app = {
     const cafeItem = document.getElementById('cafe-item-template').content.cloneNode(true);
     const propertyList = cafeItem.querySelector('ul');
 
-    const propertiesData = [
-      ['icon-like', cafeListItem.likes.length],
-      ['icon-location', cafeListItem.location],
-    ];
-
     cafeItem.querySelector('h2').textContent = cafeListItem.name;
 
-    for (let i = 0; i < propertyList.children.length; i += 1) {
-      const [icon, value] = propertiesData[i];
+    propertyList.children[0].innerHTML = `<svg><use xlink:href="#icon-location"></svg>${cafeListItem.location}`;
 
-      propertyList.children[i].innerHTML = `<svg><use xlink:href="#${icon}"></svg>${value}`;
-    }
+    propertyList.children[1].innerHTML = `<button><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use></svg><span>${cafeListItem.likes.length}</span></button>`;
 
     return cafeItem;
   },
