@@ -76,9 +76,9 @@ const app = {
 
     cafeItem.querySelector('h2').textContent = cafeListItem.name;
 
-    propertyList.children[0].innerHTML = `<svg><use xlink:href="#icon-location"></svg>${cafeListItem.location}`;
+    propertyList.children[0].innerHTML += cafeListItem.location;
 
-    propertyList.children[1].innerHTML = `<button><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use></svg><span>${cafeListItem.likes.length}</span></button>`;
+    propertyList.children[1].querySelector('button').innerHTML += `<span>${cafeListItem.likes.length}</span>`;
 
     return cafeItem;
   },
