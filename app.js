@@ -17,7 +17,7 @@ const app = {
         }
       };
 
-      request.open('GET', 'https://api.myjson.com/bins/193mab');
+      request.open('GET', 'https://api.myjson.com/bins/13lhsv');
       request.send();
     }));
   },
@@ -71,34 +71,23 @@ const app = {
    * @returns {HTMLLIElement}
    */
   createCafeItem(cafeListItem) {
-    const cafeItem = document.createElement('article');
-    const name = document.createElement('h2');
-    const propertyList = document.createElement('ul');
+    const cafeItem = document.getElementById('cafe-item-template').content.cloneNode(true);
+    const propertyList = cafeItem.querySelector('ul');
 
-    cafeItem.setAttribute('tabindex', '0');
+    const propertiesData = [
+      ['icon-like', cafeListItem.likes.length],
+      ['icon-location', cafeListItem.location],
+    ];
 
-    name.textContent = cafeListItem.name;
-    cafeItem.appendChild(name);
-    cafeItem.appendChild(propertyList);
-    propertyList.appendChild(this.createCafeItemProperty(['icon-like', cafeListItem.likes.length]));
-    propertyList.appendChild(this.createCafeItemProperty(['icon-location', cafeListItem.location]));
+    cafeItem.querySelector('h2').textContent = cafeListItem.name;
+
+    for (let i = 0; i < propertyList.children.length; i += 1) {
+      const [icon, value] = propertiesData[i];
+
+      propertyList.children[i].innerHTML = `<svg><use xlink:href="#${icon}"></svg>${value}`;
+    }
 
     return cafeItem;
-  },
-
-  /**
-   * Creates a cafe item property element based on the passed in property data
-   *
-   * @param propertyData
-   * @returns {HTMLDivElement}
-   */
-  createCafeItemProperty(propertyData) {
-    const [icon, value] = propertyData;
-    const property = document.createElement('li');
-
-    property.innerHTML = `<svg><use xlink:href="#${icon}"></svg>${value}`;
-
-    return property;
   },
 
   /**
