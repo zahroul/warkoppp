@@ -4,6 +4,9 @@
 
 main {
     position: relative;
+    max-width: 37.5rem;
+    margin-right: auto;
+    margin-left: auto;
     padding-right: $padding-content;
     padding-left: $padding-content;
 }
@@ -35,21 +38,8 @@ main {
 }
 
 @media screen and (min-width: $breakpoint-small) {
-    main {
-        padding-right: $padding-content-small;
-        padding-left: $padding-content-small;
-    }
-
     .main-header {
         right: $padding-content-small;
         left: $padding-content-small;
-    }
-}
-
-@media screen and (min-width: $breakpoint-medium) {
-    main {
-        max-width: 40rem;
-        margin-right: auto;
-        margin-left: auto;
     }
 }
