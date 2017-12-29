@@ -5,6 +5,15 @@
 .search-input {
     display: block;
     position: relative;
+
+    svg {
+        position: absolute;
+        top: 0.0625rem;
+        left: 0.5625rem;
+        width: 1.5rem;
+        height: 3rem;
+        fill: $color-text-input;
+    }
 }
 
 .search-input-sticky {
@@ -12,24 +21,16 @@
     top: 0;
     right: 0;
     left: 0;
-    padding-top: $padding-content;
-    padding-bottom: $padding-content;
+    padding: $padding-content;
     background-color: $color-background;
     box-shadow: 0 0.0625rem 1rem $color-box-shadow;
 
     div {
         position: relative;
-        max-width: 37.5rem;
+        max-width: 35.5rem;
         margin-right: auto;
         margin-left: auto;
-        padding-right: $padding-content;
-        padding-left: $padding-content;
     }
-}
-
-.search-icon {
-    position: absolute;
-    top: 0.0625rem;
 }
 
 .loading-indicator {
