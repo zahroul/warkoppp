@@ -169,7 +169,7 @@ document.querySelector('input').addEventListener('change', (event) => {
   header.className = 'main-header-static';
 
   // Hide the main heading description
-  header.querySelector('.main-heading div').setAttribute('hidden', '');
+  header.querySelector('h1 div').setAttribute('hidden', '');
 
   // Shows the app loading indicator
   app.loadingIndicator.removeAttribute('hidden');
