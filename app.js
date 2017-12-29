@@ -73,12 +73,14 @@ const app = {
   createCafeItem(cafeListItem) {
     const cafeItem = document.getElementById('cafe-item-template').content.cloneNode(true);
     const propertyList = cafeItem.querySelector('ul');
+    const buttonLike = propertyList.children[1].querySelector('button');
 
     cafeItem.querySelector('h2').textContent = cafeListItem.name;
 
     propertyList.children[0].innerHTML += cafeListItem.location;
 
-    propertyList.children[1].querySelector('button').innerHTML += `<span>${cafeListItem.likes.length}</span>`;
+    buttonLike.innerHTML += `<span>${cafeListItem.likes.length}</span>`;
+    buttonLike.addEventListener('click', this.showDialog);
 
     return cafeItem;
   },
@@ -140,6 +142,13 @@ const app = {
       this.cafeList.removeAttribute('hidden');
     }
   },
+
+  showDialog() {
+    const dialog = document.querySelector('[role="dialog"]');
+
+    dialog.removeAttribute('hidden');
+    dialog.querySelector('button').focus();
+  },
 };
 
 document.querySelector('input').addEventListener('change', (event) => {
@@ -171,6 +180,10 @@ document.querySelector('input').addEventListener('change', (event) => {
     .then(cafeListItems => app.showSearchResult(cafeListItems, keyword));
 });
 
+document.querySelector('[role="dialog"]').querySelector('button').addEventListener('click', () => {
+  document.querySelector('[role="dialog"]').setAttribute('hidden', '');
+});
+
 window.addEventListener('scroll', () => {
   const searchInput = document.querySelector('.search-input');
 
@@ -183,4 +196,10 @@ window.addEventListener('scroll', () => {
   // Remove the `sticky` classes
   document.body.removeAttribute('class');
   return searchInput.classList.remove('search-input-sticky');
+});
+
+window.addEventListener('click', (event) => {
+  const dialog = document.querySelector('[role="dialog"]');
+
+  if (event.target === dialog) dialog.setAttribute('hidden', '');
 });
