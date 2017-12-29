@@ -12,32 +12,24 @@
     top: 0;
     right: 0;
     left: 0;
-    padding: $padding-content;
+    padding-top: $padding-content;
+    padding-bottom: $padding-content;
     background-color: $color-background;
     box-shadow: 0 0.0625rem 1rem $color-box-shadow;
 
     div {
         position: relative;
+        max-width: 37.5rem;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: $padding-content;
+        padding-left: $padding-content;
     }
 }
 
 .search-icon {
     position: absolute;
     top: 0.0625rem;
-}
-
-@media screen and (min-width: $breakpoint-small) {
-    .search-input-sticky {
-        padding: $padding-content $padding-content-small;
-    }
-}
-
-@media screen and (min-width: $breakpoint-medium) {
-    .search-input-sticky div {
-        max-width: 40rem;
-        margin-right: auto;
-        margin-left: auto;
-    }
 }
 
 .loading-indicator {
