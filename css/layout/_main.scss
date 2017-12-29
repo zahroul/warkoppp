@@ -9,13 +9,13 @@ main {
     margin-left: auto;
     padding-right: $padding-content;
     padding-left: $padding-content;
-}
 
-.main-header {
-    position: absolute;
-    top: 25vh;
-    right: $padding-content;
-    left: $padding-content;
+    header {
+        position: absolute;
+        top: 25vh;
+        right: $padding-content;
+        left: $padding-content;
+    }
 }
 
 .main-header-static {
@@ -34,12 +34,5 @@ main {
     div {
         font-size: $font-size-large;
         font-weight: $font-weight-normal;
-    }
-}
-
-@media screen and (min-width: $breakpoint-small) {
-    .main-header {
-        right: $padding-content-small;
-        left: $padding-content-small;
     }
 }
