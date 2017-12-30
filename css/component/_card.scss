@@ -2,6 +2,10 @@
 // Card
 // ----------------------------------------------------------------------------
 
+[role="feed"] {
+    margin-bottom: $margin-layout;
+}
+
 article {
     h2 {
         margin-bottom: $margin-component-content;
