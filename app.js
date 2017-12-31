@@ -137,9 +137,6 @@ const app = {
     } else {
       // Fill in the cafe list element
       this.fillCafeList(cafeListItems);
-
-      // Shows the cafe list element
-      this.cafeList.removeAttribute('hidden');
     }
   },
 

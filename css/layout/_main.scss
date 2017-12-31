@@ -18,10 +18,20 @@ main {
         left: $padding-content;
     }
 
-    &:target > header {
-        position: static;
-        margin-bottom: $margin-layout;
-        padding-top: $padding-content;
+    &:target {
+        > header {
+            position: static;
+            margin-bottom: $margin-layout;
+            padding-top: $padding-content;
+        }
+
+        > *:last-child {
+            display: inherit;
+        }
+    }
+
+    > *:last-child {
+        display: none;
     }
 
     h1 {
