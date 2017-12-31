@@ -140,6 +140,9 @@ const app = {
     }
   },
 
+  /**
+   * Shows the dialog window
+   */
   showDialog() {
     const dialog = document.querySelector('[role="dialog"]');
 
