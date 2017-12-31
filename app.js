@@ -159,14 +159,17 @@ document.querySelector('input').addEventListener('change', (event) => {
   // Checks whether the search keyword is empty
   if (keyword === '') return false;
 
+  // Set the main element as the search result view
+  document.querySelector('main').id = 'search-result';
+
+  // Point the url to the search result view
+  window.location.hash = 'search-result';
+
   // Remove the alert if the document contain it
   if (document.body.contains(alert)) alert.remove();
 
   // Clear the cafe list element if it not empty
   if (app.cafeList.hasChildNodes()) app.clearCafeList();
-
-  // Add class `main-header-static` to the main header
-  header.className = 'main-header-static';
 
   // Hide the main heading description
   header.querySelector('h1 div').setAttribute('hidden', '');
