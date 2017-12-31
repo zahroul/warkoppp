@@ -150,7 +150,6 @@ const app = {
 
 document.querySelector('input').addEventListener('change', (event) => {
   const keyword = event.target.value.trim();
-  const header = document.querySelector('main header');
   const alert = document.querySelector('.alert');
 
   // Checks whether the search keyword is empty
@@ -167,9 +166,6 @@ document.querySelector('input').addEventListener('change', (event) => {
 
   // Clear the cafe list element if it not empty
   if (app.cafeList.hasChildNodes()) app.clearCafeList();
-
-  // Hide the main heading description
-  header.querySelector('h1 div').setAttribute('hidden', '');
 
   // Shows the app loading indicator
   app.loadingIndicator.removeAttribute('hidden');
